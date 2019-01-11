@@ -1,0 +1,43 @@
+module MatchPlan
+{
+	const MATCHPLANS2018 =
+	[
+{"matchdate"=>{"year"=>2018,"month"=>2,"day"=>14},"home"=>"LL","guest"=>"SH"},
+{"matchdate"=>{"year"=>2018,"month"=>2,"day"=>21},"home"=>"SH","guest"=>"SY"},
+{"matchdate"=>{"year"=>2018,"month"=>2,"day"=>26},"home"=>"SH","guest"=>"HD"},
+{"matchdate"=>{"year"=>2018,"month"=>3,"day"=>2},"home"=>"SH","guest"=>"YT"},
+{"matchdate"=>{"year"=>2018,"month"=>3,"day"=>7},"home"=>"SS","guest"=>"SH"},
+{"matchdate"=>{"year"=>2018,"month"=>3,"day"=>10},"home"=>"SH","guest"=>"SG"},
+{"matchdate"=>{"year"=>2018,"month"=>3,"day"=>13},"home"=>"SH","guest"=>"SS"},
+{"matchdate"=>{"year"=>2018,"month"=>3,"day"=>18},"home"=>"HF","guest"=>"SH"},
+{"matchdate"=>{"year"=>2018,"month"=>3,"day"=>31},"home"=>"SH","guest"=>"HX"},
+{"matchdate"=>{"year"=>2018,"month"=>4,"day"=>3},"home"=>"SH","guest"=>"LL"},
+{"matchdate"=>{"year"=>2018,"month"=>4,"day"=>8},"home"=>"RH","guest"=>"SH"},
+{"matchdate"=>{"year"=>2018,"month"=>4,"day"=>13},"home"=>"SH","guest"=>"HD"},
+{"matchdate"=>{"year"=>2018,"month"=>4,"day"=>17},"home"=>"SY","guest"=>"SH"},
+{"matchdate"=>{"year"=>2018,"month"=>4,"day"=>22},"home"=>"JS","guest"=>"SH"},
+{"matchdate"=>{"year"=>2018,"month"=>4,"day"=>29},"home"=>"SH","guest"=>"DL"},
+{"matchdate"=>{"year"=>2018,"month"=>5,"day"=>5},"home"=>"FL","guest"=>"SH"},
+{"matchdate"=>{"year"=>2018,"month"=>5,"day"=>12},"home"=>"SH","guest"=>"CX"},
+{"matchdate"=>{"year"=>2018,"month"=>5,"day"=>20},"home"=>"QJ","guest"=>"SH"},
+{"matchdate"=>{"year"=>2018,"month"=>7,"day"=>18},"home"=>"SH","guest"=>"TT"},
+{"matchdate"=>{"year"=>2018,"month"=>7,"day"=>22},"home"=>"JY","guest"=>"SH"},
+{"matchdate"=>{"year"=>2018,"month"=>7,"day"=>28},"home"=>"SH","guest"=>"GA"},
+{"matchdate"=>{"year"=>2018,"month"=>8,"day"=>1},"home"=>"LN","guest"=>"SH"},
+{"matchdate"=>{"year"=>2018,"month"=>8,"day"=>4},"home"=>"YT","guest"=>"SH"},
+{"matchdate"=>{"year"=>2018,"month"=>8,"day"=>11},"home"=>"SG","guest"=>"SH"},
+{"matchdate"=>{"year"=>2018,"month"=>8,"day"=>15},"home"=>"SH","guest"=>"HF"},
+{"matchdate"=>{"year"=>2018,"month"=>8,"day"=>19},"home"=>"HX","guest"=>"SH"},
+{"matchdate"=>{"year"=>2018,"month"=>8,"day"=>26},"home"=>"SH","guest"=>"RH"},
+{"matchdate"=>{"year"=>2018,"month"=>9,"day"=>2},"home"=>"HD","guest"=>"SH"},
+{"matchdate"=>{"year"=>2018,"month"=>9,"day"=>15},"home"=>"SH","guest"=>"JS"},
+{"matchdate"=>{"year"=>2018,"month"=>9,"day"=>22},"home"=>"DL","guest"=>"SH"},
+{"matchdate"=>{"year"=>2018,"month"=>9,"day"=>30},"home"=>"SH","guest"=>"FL"},
+{"matchdate"=>{"year"=>2018,"month"=>10,"day"=>6},"home"=>"CX","guest"=>"SH"},
+{"matchdate"=>{"year"=>2018,"month"=>10,"day"=>20},"home"=>"SH","guest"=>"QJ"},
+{"matchdate"=>{"year"=>2018,"month"=>10,"day"=>28},"home"=>"TT","guest"=>"SH"},
+{"matchdate"=>{"year"=>2018,"month"=>11,"day"=>2},"home"=>"SH","guest"=>"JY"},
+{"matchdate"=>{"year"=>2018,"month"=>11,"day"=>7},"home"=>"GA","guest"=>"SH"},
+{"matchdate"=>{"year"=>2018,"month"=>11,"day"=>11},"home"=>"SH","guest"=>"LN"}
+];
+}

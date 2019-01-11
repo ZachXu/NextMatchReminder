@@ -1,0 +1,11 @@
+<strings>
+    <string id="AppName">ShenhuaCalendarWidget</string>
+    <string id="NEXT_MATCH">Next Match</string>
+    <string id="VS">VS</string>
+    <string id="REMAIN">remains</string>
+    <string id="DAYS">day(s)</string>
+    
+     <string id="Default_Format_Month">MMM</string>
+     <string id="Month"> </string>
+    
+</strings>
