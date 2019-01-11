@@ -1,0 +1,9 @@
+<layout id="MainLayout">
+    <bitmap id="id_shenhua" x="center" y="center" filename="../drawables/shenhua.png" />
+    <label text="@Strings.NEXT_MATCH" x="30" y="30" color="0xFFFFFF" />
+    <label id="LBL_HOME" x="25" y="60" color="0xFFFFFF" />
+    <label id="LBL_VS" text="@Strings.VS" x="center" y="90" color="0xFFFFFF" />
+    <label id="LBL_GUEST" x="140" y="120" color="0xFFFFFF" />
+    <label id="LBL_MATCH_DAY" x="30" y="150" color="0xFFFFFF" />
+    <label id="LBL_REMAIN_DAYS" x="50" y="180" color="0xFFFFFF" />
+</layout>
