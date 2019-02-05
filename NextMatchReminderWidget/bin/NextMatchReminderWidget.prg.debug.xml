@@ -128,12 +128,12 @@
 <entry endPc="268436436" name="days" stackId="6" startPc="268435649"/>
 <entry endPc="268436437" name="dc" stackId="1" startPc="268435645"/>
 <entry endPc="268436560" name="currentinfo" stackId="1" startPc="268436446"/>
+<entry endPc="268437712" name="rez_cmp_local_bitmap_7906901132" stackId="3" startPc="268436573"/>
 <entry endPc="268437712" name="rez_cmp_local_bitmap_LBL_REMAIN_DAYS" stackId="9" startPc="268436573"/>
 <entry endPc="268437712" name="rez_cmp_local_bitmap_LBL_VS_fontHeight" stackId="6" startPc="268436573"/>
 <entry endPc="268437712" name="rez_cmp_local_bitmap_LBL_HOME" stackId="4" startPc="268436573"/>
 <entry endPc="268437712" name="rez_cmp_local_bitmap_LBL_MATCH_DAY" stackId="8" startPc="268436573"/>
 <entry endPc="268437712" name="rez_cmp_local_bitmap_LBL_VS" stackId="5" startPc="268436573"/>
-<entry endPc="268437712" name="rez_cmp_local_bitmap_6609496123" stackId="3" startPc="268436573"/>
 <entry endPc="268437712" name="rez_cmp_local_bitmap_LBL_GUEST" stackId="7" startPc="268436573"/>
 <entry endPc="268437712" name="rez_cmp_local_bitmap_id_shenhua" stackId="2" startPc="268436573"/>
 <entry endPc="268437713" name="dc" stackId="1" startPc="268436561"/>
