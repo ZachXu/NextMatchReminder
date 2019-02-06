@@ -1,8 +1,10 @@
 package de.zachxu.nextmatchreminder.webservice;
 
+import java.util.Date;
 import java.util.stream.Collectors;
 
 import de.zachxu.nextmatchreminder.webservice.db.daoservice.MatchCountryDAOService;
+import de.zachxu.nextmatchreminder.webservice.db.daoservice.MatchInfoDAOService;
 import de.zachxu.nextmatchreminder.webservice.db.daoservice.TeamInfoDAOService;
 
 /**
@@ -26,5 +28,7 @@ public class StartNextMatchReminderWebService
     			NMRProperty.setProperty(paramValue[0], paramValue[1]);
     		}
     	}
+    	
+    	MatchInfoDAOService.getInstance().getNextMatchInfo("sh", new Date());
     }
 }
