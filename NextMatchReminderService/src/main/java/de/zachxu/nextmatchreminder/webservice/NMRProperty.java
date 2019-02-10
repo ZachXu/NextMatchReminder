@@ -7,6 +7,7 @@ public class NMRProperty{
 	private static final Properties props = new Properties(); 
 	
 	public static enum NMRParam{
+		SERVERPORT("-port", "80"),
 		DBURL("-dburl", "jdbc:derby:./database/NMR");
 		
 		private final String mParameter;
@@ -44,6 +45,15 @@ public class NMRProperty{
 	public static String getDBURL()
 	{
 		return getProperty(NMRParam.DBURL);
+	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public static int getServerPort()
+	{
+		return Integer.parseInt(getProperty(NMRParam.SERVERPORT));
 	}
 
 	/**

@@ -20,6 +20,15 @@ public abstract class AbstractNMRObject implements Serializable {
 	public String getId() {
 		return this.mId;
 	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public boolean isNull()
+	{
+		return mId == null;
+	}
 
 	@Override
 	public int hashCode() {

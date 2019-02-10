@@ -3,6 +3,9 @@ package de.zachxu.nextmatchreminder.webservice.db.data;
 import javax.persistence.AttributeOverride;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 @AttributeOverride(name="mId", column=@Column(name="CATEGORY_ID"))
@@ -13,7 +16,11 @@ public class MatchCategory extends AbstractNMRObject {
 	 */
 	private static final long serialVersionUID = 1L;
 	
+	@Column(name="CATEGORYNAME")
 	private final String mCategoryName;
+	
+	@ManyToOne(fetch = FetchType.LAZY)
+	@JoinColumn(name="COUNTRY_ID")
 	private final MatchCountry mCategoryCountry;
 
 	/**
@@ -23,8 +30,6 @@ public class MatchCategory extends AbstractNMRObject {
 	{
 		this(null, null, null);
 	}
-	
-	
 
 	/**
 	 * @param pCategoryName

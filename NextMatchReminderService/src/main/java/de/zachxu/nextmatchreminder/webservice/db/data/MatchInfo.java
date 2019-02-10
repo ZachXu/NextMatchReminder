@@ -41,7 +41,7 @@ public class MatchInfo extends AbstractNMRObject {
 	 */
 	public MatchInfo()
 	{
-		this(null, null, null, null, 0, null);
+		this(null, new TeamInfo(), new TeamInfo(), new MatchCategory(), 0, null);
 	}
 
 	/**

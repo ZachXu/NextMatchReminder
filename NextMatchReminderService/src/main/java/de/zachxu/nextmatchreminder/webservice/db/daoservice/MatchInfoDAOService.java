@@ -51,7 +51,7 @@ public class MatchInfoDAOService extends AbstractDAOService<MatchInfo> {
 				+ " and mi.mMatchTime >= :mSearchDate order by mi.mMatchTime asc";
 		
 		List<MatchInfo> retList = mSessionManager.createQuery(hql, MatchInfo.class)
-		.setParameter("mTeamId", pTeamId)
+		.setParameter("mTeamId", pTeamId != null ? pTeamId.toUpperCase() : "")
 		.setParameter("mSearchDate", pSearchDate)
 		.getResultList();
 		

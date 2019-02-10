@@ -1,21 +1,50 @@
 package de.zachxu.nextmatchreminder.webservice;
 
-import java.util.Date;
-import java.util.stream.Collectors;
+import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.ServerConnector;
+import org.glassfish.jersey.jetty.JettyHttpContainer;
+import org.glassfish.jersey.server.ContainerFactory;
 
-import de.zachxu.nextmatchreminder.webservice.db.daoservice.MatchCountryDAOService;
-import de.zachxu.nextmatchreminder.webservice.db.daoservice.MatchInfoDAOService;
-import de.zachxu.nextmatchreminder.webservice.db.daoservice.TeamInfoDAOService;
+import de.zachxu.nextmatchreminder.webservice.json.NMRJsonApplication;
 
 /**
- * Hello world!
  *
  */
 public class StartNextMatchReminderWebService 
 {
     public static void main(String[] args)
     {
-    	for (String arg : args)
+    	extractParameters(args);
+    	
+    	try
+		{
+    		Server server = new Server();
+        	ServerConnector serverConnector = new ServerConnector(server);
+        	serverConnector.setPort(NMRProperty.getServerPort());
+        	server.addConnector(serverConnector);
+        	
+        	
+        	final JettyHttpContainer container = ContainerFactory.createContainer(JettyHttpContainer.class, new NMRJsonApplication());
+        	
+        	server.setHandler(container);
+    		
+			server.start();
+			server.join();
+			
+		} catch (Exception e)
+		{
+			e.printStackTrace();
+		}
+    	
+    }
+
+    /**
+     * 
+     * @param args
+     */
+	private static void extractParameters(String[] args)
+	{
+		for (String arg : args)
     	{
     		String[] paramValue = arg.split("=");
     		
@@ -28,7 +57,5 @@ public class StartNextMatchReminderWebService
     			NMRProperty.setProperty(paramValue[0], paramValue[1]);
     		}
     	}
-    	
-    	MatchInfoDAOService.getInstance().getNextMatchInfo("sh", new Date());
-    }
+	}
 }
