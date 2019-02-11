@@ -1,16 +1,21 @@
 #!/bin/sh
 SERVICE_NAME=NextMatchService
 SERVICE_HOME=$(dirname $(pwd))
-PID_PATH_NAME=/tmp/${SERVICE_NAME-pid
+PID_PATH_NAME=/tmp/$SERVICE_NAME-pid
+CLASSPATH=$CLASSPATH:$SERVICE_HOME/lib/*
+LOG_DIR=$SERVICE_HOME/logs
+
+echo $CLASSPATH
+echo $PID_PATH_NAME
 
 START_CLASS=de.zachxu.nextmatchreminder.webservice.StartNextMatchReminderWebService
-START_ARG=-dburl=jdbc:derby:/ent/projekt/NextMatchReminder/NextMatchReminderService/database/NMR -port=8080
+START_ARGS="-dburl=jdbc:derby:$SERVICE_HOME/database/NMR -port=8080"
 
 case $1 in
     start)
         echo "Starting $SERVICE_NAME ..."
         if [ ! -f $PID_PATH_NAME ]; then
-            nohup java -classpath $SERVICE_HOME/lib/*.jar $START_CLASS $START_ARG /tmp 2>> /dev/null >> /dev/null &
+            nohup java $START_CLASS $START_ARGS >> $SERVICE_NAME.out 2>&1&
             echo $! > $PID_PATH_NAME
             echo "$SERVICE_NAME started ..."
         else

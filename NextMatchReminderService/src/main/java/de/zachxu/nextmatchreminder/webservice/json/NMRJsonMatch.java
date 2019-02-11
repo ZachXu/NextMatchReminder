@@ -7,13 +7,13 @@ import javax.json.bind.annotation.JsonbPropertyOrder;
 
 import de.zachxu.nextmatchreminder.webservice.db.data.MatchInfo;
 
-@JsonbPropertyOrder({"homeTeam", "guestTeam", "categoryName", "matchRound", "matchTime"})
+@JsonbPropertyOrder({"home", "guest", "categoryName", "matchRound", "matchTime"})
 public class NMRJsonMatch {
 	
-	@JsonbProperty("homeTeam")
+	@JsonbProperty("home")
 	private final String mHomeTeam;
 	
-	@JsonbProperty("guestTeam")
+	@JsonbProperty("guest")
 	private final String mGuestTeam;
 	
 	@JsonbProperty("categoryName")

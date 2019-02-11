@@ -6,7 +6,6 @@
 	<groupId>de.zachxu.nextmatchreminder</groupId>
 	<artifactId>nextmatchreminderservice</artifactId>
 	<version>2.0.0</version>
-	<packaging>pom</packaging>
 
 	<name>NextMatchReminderService</name>
 	<url>http://maven.apache.org</url>
@@ -64,4 +63,34 @@
 			<version>2.28</version>
 		</dependency>
 	</dependencies>
+
+	<build>
+	<resources>
+		<resource>
+			<directory>src/main/resource</directory>
+		</resource>
+	</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>3.1.1</version>
+				<configuration>
+					<descriptors>
+						<descriptor>src/main/assembly/assembly.xml</descriptor>
+					</descriptors>
+				</configuration>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
 </project>
