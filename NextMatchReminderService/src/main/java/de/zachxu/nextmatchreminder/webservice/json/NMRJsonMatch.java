@@ -1,28 +1,24 @@
 package de.zachxu.nextmatchreminder.webservice.json;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.GregorianCalendar;
 
+import javax.json.bind.annotation.JsonbDateFormat;
 import javax.json.bind.annotation.JsonbProperty;
 import javax.json.bind.annotation.JsonbPropertyOrder;
 
 import de.zachxu.nextmatchreminder.webservice.db.data.MatchInfo;
 
-@JsonbPropertyOrder({"home", "guest", "categoryName", "matchRound", "matchTime"})
+@JsonbPropertyOrder({"homeTeam", "guestTeam", "matchCategory", "matchRound", "matchTime"})
 public class NMRJsonMatch {
 	
-	@JsonbProperty("home")
+	private static final SimpleDateFormat NMRSDF = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+	
 	private final String mHomeTeam;
-	
-	@JsonbProperty("guest")
 	private final String mGuestTeam;
-	
-	@JsonbProperty("categoryName")
 	private final String mMatchCategory;
-	
-	@JsonbProperty("matchRound")
 	private final int mMatchRound;
-	
-	@JsonbProperty("matchTime")
 	private final Date mMatchTime;
 	
 	/**
@@ -53,6 +49,7 @@ public class NMRJsonMatch {
 	/**
 	 * @return the homeTeam
 	 */
+	@JsonbProperty("home")
 	public String getHomeTeam()
 	{
 		return mHomeTeam;
@@ -61,6 +58,7 @@ public class NMRJsonMatch {
 	/**
 	 * @return the guestTeam
 	 */
+	@JsonbProperty("guest")
 	public String getGuestTeam()
 	{
 		return mGuestTeam;
@@ -69,6 +67,7 @@ public class NMRJsonMatch {
 	/**
 	 * @return the matchCategory
 	 */
+	@JsonbProperty("categoryName")
 	public String getMatchCategory()
 	{
 		return mMatchCategory;
@@ -77,6 +76,7 @@ public class NMRJsonMatch {
 	/**
 	 * @return the matchRound
 	 */
+	@JsonbProperty("matchRound")
 	public int getMatchRound()
 	{
 		return mMatchRound;
@@ -85,9 +85,10 @@ public class NMRJsonMatch {
 	/**
 	 * @return the matchTime
 	 */
-	public Date getMatchTime()
+	@JsonbProperty("matchTime")
+	public String getMatchTime()
 	{
-		return mMatchTime;
+		return NMRSDF.format(mMatchTime);
 	}
 
 }
