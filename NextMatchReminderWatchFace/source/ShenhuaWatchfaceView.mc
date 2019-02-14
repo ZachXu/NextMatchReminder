@@ -83,6 +83,7 @@ class ShenhuaWatchfaceView extends WatchUi.WatchFace {
         setHeartRate(dc);
         
         setBLEConnectionInfo(dc); 
+        
     }
     
     //set heart rate
