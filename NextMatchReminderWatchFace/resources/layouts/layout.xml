@@ -5,10 +5,11 @@
     
     <label id="LBL_TIME" x="center" y="center" font="Gfx.FONT_NUMBER_THAI_HOT" justification="Graphics.TEXT_JUSTIFY_CENTER" color="0xFFFFFF" />
     
-    <!-- <label text="@Strings.NEXT_MATCH" x="30" y="30" color="0xFFFFFF" />
-    <label id="LBL_HOME" x="25" y="60" color="0xFFFFFF" />
-    <label id="LBL_VS" text="@Strings.VS" x="center" y="90" color="0xFFFFFF" />
-    <label id="LBL_GUEST" x="140" y="120" color="0xFFFFFF" />
-    <label id="LBL_MATCH_DAY" x="30" y="150" color="0xFFFFFF" />
-    <label id="LBL_REMAIN_DAYS" x="50" y="180" color="0xFFFFFF" /> -->
+    <label text="@Strings.NEXT_MATCH" x="20" y="150" font="Gfx.FONT_SMALL" color="0xFFFFFF" />
+    <label id="LBL_MATCHCATEGORY" x="95" y="150" font="Gfx.FONT_SMALL" color="0xFFFFFF" />
+    <label id="LBL_MATCHROUND" x="145" y="150" font="Gfx.FONT_SMALL" color="0xFFFFFF" />
+    <label id="LBL_HOME" x="25" y="170" font="Gfx.FONT_SMALL" color="0xFFFFFF" />
+    <label id="LBL_VS" text="@Strings.VS" font="Gfx.FONT_SMALL" x="110" y="170" color="0xFFFFFF" />
+    <label id="LBL_GUEST" x="135" y="170" font="Gfx.FONT_SMALL" color="0xFFFFFF" />
+    <label id="LBL_MATCH_DAY" x="center" y="195" font="Gfx.FONT_XTINY" justification="Gfx.TEXT_JUSTIFY_CENTER" color="0xFFFFFF" />
 </layout>

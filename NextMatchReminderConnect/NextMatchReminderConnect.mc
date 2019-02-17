@@ -1,4 +1,7 @@
 using Toybox.Communications;
+using Toybox.System;
+using Toybox.Lang;
+
 
 module NextMatchReminderConnect {
 	
@@ -20,18 +23,22 @@ module NextMatchReminderConnect {
 			var options = {
 				:method => Communications.HTTP_REQUEST_METHOD_GET,
 				:headers => {
-						"Content-Type" => Communications.REQUEST_CONTENT_TYPE_JSON},
-				:responseType => Communications.HTTP_RESPONSE_CONTENT_TYPE_JSON
+						"Content-Type" => Communications.REQUEST_CONTENT_TYPE_JSON}
 			};
 			
-			Communications.makeWebRequest(url, params, options, method(:onReceive));		
+			Communications.makeWebRequest(url, params, options, new Lang.Method(NMRConnect, :onReceive));		
 		}
 		
+		//
 		function onReceive(responseCode, data)
 		{
 			if (responseCode == 200
 			&& resultHandler != null) {
-            resultHandler.invoke(data);
+            	resultHandler.invoke(data);
+            }
+            else
+            {
+            	System.println(responseCode);
             }
 		}
 	}

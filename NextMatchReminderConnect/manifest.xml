@@ -10,6 +10,8 @@
         </iq:permissions>
         <iq:languages/>
         <iq:barrels/>
-        <iq:annotations/>
+        <iq:annotations>
+            <iq:annotation>NMRConnect</iq:annotation>
+        </iq:annotations>
     </iq:barrel>
 </iq:manifest>

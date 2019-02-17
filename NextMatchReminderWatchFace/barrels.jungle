@@ -2,5 +2,6 @@
 # on the project and select "Configure Monkey Barrels".
 
 NextMatchReminderConnect = [/ent/projekt/NextMatchReminder/NextMatchReminderConnect/monkey.jungle]
+base.NextMatchReminderConnect.annotations = NMRConnect
 base.barrelPath = $(base.barrelPath);$(NextMatchReminderConnect)
 

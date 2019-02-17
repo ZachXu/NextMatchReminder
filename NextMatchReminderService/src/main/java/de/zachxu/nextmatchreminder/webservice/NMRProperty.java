@@ -8,6 +8,7 @@ public class NMRProperty{
 	
 	public static enum NMRParam{
 		SERVERPORT("-port", "80"),
+		SECURESERVERPORT("-secureport", "443"),
 		DBURL("-dburl", "jdbc:derby:./database/NMR");
 		
 		private final String mParameter;
@@ -55,6 +56,15 @@ public class NMRProperty{
 	{
 		return Integer.parseInt(getProperty(NMRParam.SERVERPORT));
 	}
+	
+	/**
+	 * 
+	 * @return
+	 */
+	public static int getSecureServerPort()
+	{
+		return Integer.parseInt(getProperty(NMRParam.SECURESERVERPORT));
+	}
 
 	/**
 	 * 
@@ -74,4 +84,5 @@ public class NMRProperty{
 	{
 		props.setProperty(pKey, pValue);
 	}
+	
 }
