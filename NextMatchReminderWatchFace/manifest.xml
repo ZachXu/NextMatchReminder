@@ -14,8 +14,6 @@
             <iq:language>eng</iq:language>
             <iq:language>zhs</iq:language>
         </iq:languages>
-        <iq:barrels>
-            <iq:depends name="NextMatchReminderConnect" version="1.0.0"/>
-        </iq:barrels>
+        <iq:barrels/>
     </iq:application>
 </iq:manifest>
