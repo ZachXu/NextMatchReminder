@@ -4,35 +4,23 @@ using Toybox.System;
 using Toybox.Lang;
 using Toybox.Time;
 using Toybox.Time.Gregorian;
-using NextMatchReminderConnect.NMRConnect;
 
-class ShenhuaWatchfaceView extends WatchUi.WatchFace {
+
+class NextMatchReminderWatchfaceView extends WatchUi.WatchFace {
 
 	private const FORMAT_MONTH_SHORT = "MM";
 	private const FORMAT_MONTH_MEDIUM = "MMM";
 	
-	var heartRate;
+	var heartRateIt;
 	var bleConnectInfo;
 
     function initialize() {
         WatchFace.initialize();
-        Sensor.setEnabledSensors([Sensor.SENSOR_HEARTRATE]);
-        Sensor.enableSensorEvents(method(:onSensor));
     }
     
-    //get heart rate
-    function onSensor(sensorInfo)
-    {
-    	heartRate = sensorInfo.heartRate;
-    	
-    	WatchUi.requestUpdate();
-    }
-
     // Load your resources here
     function onLayout(dc) {
         setLayout(Rez.Layouts.WatchFaceLayout(dc));
-        
-        
     }
 
     // Called when this View is brought to the foreground. Restore
@@ -90,18 +78,31 @@ class ShenhuaWatchfaceView extends WatchUi.WatchFace {
     
     //set heart rate
     function showHeartRate(dc){
+    	
+    	heartRateIt = getHeartRateIterator();
     
-    	if (heartRate != null)
+    	if (heartRateIt != null)
     	{
 	    	dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_TRANSPARENT);
 	    	var iconheart = WatchUi.loadResource(Rez.Drawables.HeartIcon);
 	    	dc.drawBitmap(90, 50, iconheart);
 	    	dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-	    	dc.drawText(120, 50, Graphics.FONT_SYSTEM_TINY, heartRate, Graphics.TEXT_JUSTIFY_LEFT);
+	    	dc.drawText(120, 50, Graphics.FONT_SYSTEM_TINY, heartRateIt.next().heartRate, Graphics.TEXT_JUSTIFY_LEFT);
 	    	dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
     	}
     
     }
+    
+    //
+    function getHeartRateIterator() {
+    	if (Toybox has :ActivityMonitor
+    	&& Toybox.ActivityMonitor has :getHeartRateHistory)
+    	{
+    		return Toybox.ActivityMonitor.getHeartRateHistory(1, true);
+    	}
+    	
+    	return null;
+	}
     
     //
     function showBLEConnectionInfo(dc){
@@ -174,11 +175,6 @@ class ShenhuaWatchfaceView extends WatchUi.WatchFace {
     	dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
     }
     
-    //query next match info and use method handleResultData for the response
-    function queryNextMatchInfo(){
-    	NMRConnect.makeNextMatchRequest(self.method(:handleResultData));
-    }
-    
     //
     function handleResultData(data)
     {
@@ -212,7 +208,6 @@ class ShenhuaWatchfaceView extends WatchUi.WatchFace {
 
     // The user has just looked at their watch. Timers and animations may be started here.
     function onExitSleep() {
-    	queryNextMatchInfo(); 
     	WatchUi.requestUpdate();
     }
 
