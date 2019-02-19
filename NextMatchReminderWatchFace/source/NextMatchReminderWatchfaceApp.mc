@@ -2,6 +2,8 @@ using Toybox.Application;
 using Toybox.Background;
 using Toybox.Time;
 
+const KEY_MATCHINFO="MATCHINFO";
+
 (:background)
 class NextMatchReminderWatchfaceApp extends Application.AppBase {
 
@@ -33,7 +35,10 @@ class NextMatchReminderWatchfaceApp extends Application.AppBase {
     
     //
     function onBackgroundData(data) {
-    	mView.handleResultData(data);
+    	if (data != null)
+    	{
+    		Application.Storage.setValue(KEY_MATCHINFO, data);
+    	}
     }
     
     //Return background service instance

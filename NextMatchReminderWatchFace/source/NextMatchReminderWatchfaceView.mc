@@ -4,6 +4,7 @@ using Toybox.System;
 using Toybox.Lang;
 using Toybox.Time;
 using Toybox.Time.Gregorian;
+using Toybox.Application.Storage;
 
 
 class NextMatchReminderWatchfaceView extends WatchUi.WatchFace {
@@ -13,6 +14,7 @@ class NextMatchReminderWatchfaceView extends WatchUi.WatchFace {
 	
 	var heartRateIt;
 	var bleConnectInfo;
+	var matchInfo;
 
     function initialize() {
         WatchFace.initialize();
@@ -65,10 +67,12 @@ class NextMatchReminderWatchfaceView extends WatchUi.WatchFace {
         var timeString = Lang.format("$1$:$2$", [clockTime.hour, clockTime.min.format("%02d")]);
         var lbltime = View.findDrawableById("LBL_TIME");
         lbltime.setText(timeString);
+		
+		showMatchInfoData(dc);
 
         // Call the parent onUpdate function to redraw the layout
         View.onUpdate(dc);
-        
+		        
         showHeartRate(dc);
         
         showBLEConnectionInfo(dc);
@@ -83,12 +87,21 @@ class NextMatchReminderWatchfaceView extends WatchUi.WatchFace {
     
     	if (heartRateIt != null)
     	{
-	    	dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_TRANSPARENT);
-	    	var iconheart = WatchUi.loadResource(Rez.Drawables.HeartIcon);
-	    	dc.drawBitmap(90, 50, iconheart);
-	    	dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
-	    	dc.drawText(120, 50, Graphics.FONT_SYSTEM_TINY, heartRateIt.next().heartRate, Graphics.TEXT_JUSTIFY_LEFT);
-	    	dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
+    		var first = heartRateIt.next();
+		    var curHr = null;
+		      if ((first != null) && (first.heartRate != 255)) {
+		        curHr = first.heartRate;
+		      }
+    	
+    		if (curHr != null)
+    		{
+    			dc.setColor(Graphics.COLOR_RED, Graphics.COLOR_TRANSPARENT);
+		    	var iconheart = WatchUi.loadResource(Rez.Drawables.HeartIcon);
+		    	dc.drawBitmap(90, 50, iconheart);
+		    	dc.setColor(Graphics.COLOR_WHITE, Graphics.COLOR_TRANSPARENT);
+		    	dc.drawText(120, 50, Graphics.FONT_SYSTEM_TINY, curHr, Graphics.TEXT_JUSTIFY_LEFT);
+		    	dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
+    		}
     	}
     
     }
@@ -176,30 +189,32 @@ class NextMatchReminderWatchfaceView extends WatchUi.WatchFace {
     }
     
     //
-    function handleResultData(data)
+    function showMatchInfoData(dc)
     {
-    	if (data instanceof Dictionary)
+    	matchInfo = Storage.getValue(KEY_MATCHINFO);
+    	
+    	if (matchInfo != null && matchInfo instanceof Dictionary)
     	{
     		var lblMatchCategory = View.findDrawableById("LBL_MATCHCATEGORY");
-    		lblMatchCategory.setText(data["categoryName"]);
+    		lblMatchCategory.setText(matchInfo["categoryName"]);
     		
     		var lblMatchRound = View.findDrawableById("LBL_MATCHROUND");
     		var formatMatchRound = WatchUi.loadResource(Rez.Strings.Format_MatchRound);
     		lblMatchRound.setText(
-    			Lang.format(formatMatchRound, [data["matchRound"]]));
+    			Lang.format(formatMatchRound, [matchInfo["matchRound"]]));
     		
     		var lblHome = View.findDrawableById("LBL_HOME");
-    		lblHome.setText(data["home"]);
+    		lblHome.setText(matchInfo["home"]);
     		
     		var lblGuest = View.findDrawableById("LBL_GUEST");
-    		lblGuest.setText(data["guest"]);
+    		lblGuest.setText(matchInfo["guest"]);
     		
     		var lblMatchTime = View.findDrawableById("LBL_MATCH_DAY");
-    		lblMatchTime.setText(data["matchTime"]);
+    		lblMatchTime.setText(matchInfo["matchTime"]);
     	}
     	
     }
-
+    
     // Called when this View is removed from the screen. Save the
     // state of this View here. This includes freeing resources from
     // memory.
@@ -208,7 +223,6 @@ class NextMatchReminderWatchfaceView extends WatchUi.WatchFace {
 
     // The user has just looked at their watch. Timers and animations may be started here.
     function onExitSleep() {
-    	WatchUi.requestUpdate();
     }
 
     // Terminate any active timers and prepare for slow updates.
