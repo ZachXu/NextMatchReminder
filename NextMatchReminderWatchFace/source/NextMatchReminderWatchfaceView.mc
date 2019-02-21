@@ -124,16 +124,29 @@ class NextMatchReminderWatchfaceView extends WatchUi.WatchFace {
     	
     	if (phoneConnected)
     	{
-			bleConnectInfo = devSetting.connectionInfo[:bluetooth];
+    		if (Toybox.System.DeviceSettings has :connectionInfo)
+    		{
+    			bleConnectInfo = devSetting.connectionInfo[:bluetooth];
 			
-			if (System.CONNECTION_STATE_CONNECTED == bleConnectInfo.state)
-			{
-				dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
-				var iconBLE = WatchUi.loadResource(Rez.Drawables.BluetoothIcon);
-				dc.drawBitmap(60, 50, iconBLE);
-				dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
-			}	
+				if (System.CONNECTION_STATE_CONNECTED == bleConnectInfo.state)
+				{
+				drawBLEConnected(dc);
+				}	
+    		}
+    		else
+    		{
+    			drawBLEConnected(dc);
+    		}
+			
     	}
+    }
+    
+    function drawBLEConnected(dc)
+    {
+    	dc.setColor(Graphics.COLOR_BLUE, Graphics.COLOR_TRANSPARENT);
+		var iconBLE = WatchUi.loadResource(Rez.Drawables.BluetoothIcon);
+		dc.drawBitmap(60, 50, iconBLE);
+		dc.setColor(Graphics.COLOR_BLACK, Graphics.COLOR_BLACK);
     }
     
     //show battery info
@@ -147,7 +160,8 @@ class NextMatchReminderWatchfaceView extends WatchUi.WatchFace {
     	var y = dc.getHeight() - height - 5;
     	
     	//draw bolt if battery is charing
-    	if (systemStats.charging)
+    	if (Toybox.System.Stats has :charging 
+    	&& systemStats.charging)
     	{
     		var bw = 20;
     		var bh = 20;
