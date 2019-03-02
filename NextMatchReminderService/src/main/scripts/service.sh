@@ -27,6 +27,7 @@ case $1 in
             PID=$(cat $PID_PATH_NAME);
             echo "$SERVICE_NAME stoping ..."
             kill $PID;
+            rm -f $SERVICE_HOME/bin/$SERVICE_NAME.out;
             echo "$SERVICE_NAME stopped ..."
             rm $PID_PATH_NAME
         else
@@ -38,6 +39,7 @@ case $1 in
             PID=$(cat $PID_PATH_NAME);
             echo "$SERVICE_NAME stopping ...";
             kill $PID;
+            rm -f $SERVICE_HOME/bin/$SERVICE_NAME.out;
             echo "$SERVICE_NAME stopped ...";
             rm $PID_PATH_NAME
             echo "$SERVICE_NAME starting ..."
