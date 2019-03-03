@@ -1,7 +1,7 @@
 <layout id="WatchFaceLayout">
     <bitmap id="id_shenhua" x="center" y="center" filename="../drawables/shenhua.png" /> 
     
-    <label id="LBL_DATE_WEEKDAY" x="40" y="20" font="Gfx.FONT_MEDIUM" color="0xFFFFFF" />
+    <label id="LBL_DATE_WEEKDAY" x="40" y="20" font="Gfx.FONT_SMALL" color="0xFFFFFF" />
     
     <drawable id="DRAW_BLUETOOTH" class="DrawableBluetooth">
         <param name="x">60</param>
