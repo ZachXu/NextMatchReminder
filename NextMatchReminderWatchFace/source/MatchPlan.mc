@@ -1,0 +1,35 @@
+module MatchPlan
+{
+	const MATCHPLANS =
+	[
+{"home"=>"SH","guest"=>"SG","categoryName"=>"csl","matchRound"=>"1","matchTime"=>"2019-03-01 19:35"},
+{"home"=>"SH","guest"=>"HX","categoryName"=>"csl","matchRound"=>"2","matchTime"=>"2019-03-10 19:35"},
+{"home"=>"JY","guest"=>"SH","categoryName"=>"csl","matchRound"=>"3","matchTime"=>"2019-03-31 17:35"},
+{"home"=>"SH","guest"=>"RH","categoryName"=>"csl","matchRound"=>"4","matchTime"=>"2019-04-07 19:35"},
+{"home"=>"FL","guest"=>"SH","categoryName"=>"csl","matchRound"=>"5","matchTime"=>"2019-04-12 19:35"},
+{"home"=>"WH","guest"=>"SH","categoryName"=>"csl","matchRound"=>"6","matchTime"=>"2019-04-21 19:35"},
+{"home"=>"SH","guest"=>"TH","categoryName"=>"csl","matchRound"=>"7","matchTime"=>"2019-04-27 19:35"},
+{"home"=>"SZ","guest"=>"SH","categoryName"=>"csl","matchRound"=>"8","matchTime"=>"2019-05-05 19:35"},
+{"home"=>"TT","guest"=>"SH","categoryName"=>"csl","matchRound"=>"9","matchTime"=>"2019-05-10 19:35"},
+{"home"=>"SH","guest"=>"LN","categoryName"=>"csl","matchRound"=>"10","matchTime"=>"2019-05-17 20:00"},
+{"home"=>"DL","guest"=>"SH","categoryName"=>"csl","matchRound"=>"11","matchTime"=>"2019-05-26 15:30"},
+{"home"=>"SH","guest"=>"CX","categoryName"=>"csl","matchRound"=>"12","matchTime"=>"2019-06-01 19:35"},
+{"home"=>"GA","guest"=>"SH","categoryName"=>"csl","matchRound"=>"13","matchTime"=>"2019-06-14 18:00"},
+{"home"=>"JS","guest"=>"SH","categoryName"=>"csl","matchRound"=>"14","matchTime"=>"2019-06-21 19:35"},
+{"home"=>"SH","guest"=>"HD","categoryName"=>"csl","matchRound"=>"15","matchTime"=>"2019-07-01 19:35"},
+{"home"=>"SG","guest"=>"SH","categoryName"=>"csl","matchRound"=>"16","matchTime"=>"2019-07-06 19:35"},
+{"home"=>"HX","guest"=>"SH","categoryName"=>"csl","matchRound"=>"17","matchTime"=>"2019-07-12 19:35"},
+{"home"=>"SH","guest"=>"JY","categoryName"=>"csl","matchRound"=>"18","matchTime"=>"2019-07-16 19:35"},
+{"home"=>"RH","guest"=>"SH","categoryName"=>"csl","matchRound"=>"19","matchTime"=>"2019-07-21 17:30"},
+{"home"=>"SH","guest"=>"FL","categoryName"=>"csl","matchRound"=>"20","matchTime"=>"2019-07-27 19:35"},
+{"home"=>"SH","guest"=>"WH","categoryName"=>"csl","matchRound"=>"21","matchTime"=>"2019-08-02 19:35"},
+{"home"=>"TH","guest"=>"SH","categoryName"=>"csl","matchRound"=>"22","matchTime"=>"2019-08-07 19:35"},
+{"home"=>"SH","guest"=>"SZ","categoryName"=>"csl","matchRound"=>"23","matchTime"=>"2019-08-10 19:35"},
+{"home"=>"SH","guest"=>"TT","categoryName"=>"csl","matchRound"=>"24","matchTime"=>"2019-09-15 17:30"},
+{"home"=>"LN","guest"=>"SH","categoryName"=>"csl","matchRound"=>"25","matchTime"=>"2019-09-21 19:35"},
+{"home"=>"SH","guest"=>"DL","categoryName"=>"csl","matchRound"=>"26","matchTime"=>"2019-10-20 19:35"},
+{"home"=>"CX","guest"=>"SH","categoryName"=>"csl","matchRound"=>"27","matchTime"=>"2019-10-25 19:35"},
+{"home"=>"SH","guest"=>"GA","categoryName"=>"csl","matchRound"=>"28","matchTime"=>"2019-11-22 19:35"},
+{"home"=>"SH","guest"=>"JS","categoryName"=>"csl","matchRound"=>"29","matchTime"=>"2019-11-27 19:35"},
+{"home"=>"HD","guest"=>"SH","categoryName"=>"csl","matchRound"=>"30","matchTime"=>"2019-12-01 15:00"}];
+}
