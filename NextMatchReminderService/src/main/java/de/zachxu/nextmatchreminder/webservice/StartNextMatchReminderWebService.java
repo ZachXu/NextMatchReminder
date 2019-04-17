@@ -1,5 +1,7 @@
 package de.zachxu.nextmatchreminder.webservice;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.eclipse.jetty.server.Connector;
 import org.eclipse.jetty.server.HttpConfiguration;
 import org.eclipse.jetty.server.HttpConnectionFactory;
@@ -18,12 +20,16 @@ import de.zachxu.nextmatchreminder.webservice.json.NMRJsonApplication;
  */
 public class StartNextMatchReminderWebService 
 {
+	private static final Logger LOG = LogManager.getLogger(StartNextMatchReminderWebService.class);
+	
     public static void main(String[] args)
     {
     	extractParameters(args);
     	
     	try
 		{
+    		LOG.info("initial server...");
+    		
     		Server server = new Server();
         	ServerConnector serverConnector = new ServerConnector(server);
         	serverConnector.setPort(NMRProperty.getServerPort());
@@ -52,8 +58,10 @@ public class StartNextMatchReminderWebService
 			
 		} catch (Exception e)
 		{
-			e.printStackTrace();
+			LOG.error(e.getMessage(), e);
 		}
+    	
+    	LOG.info("Server is down...");
     	
     }
 

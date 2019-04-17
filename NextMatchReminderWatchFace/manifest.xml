@@ -4,6 +4,8 @@
             <iq:product id="fr235"/>
             <iq:product id="fr935"/>
             <iq:product id="vivoactive3"/>
+            <iq:product id="vivoactive3m"/>
+            <iq:product id="vivoactive3mlte"/>
         </iq:products>
         <iq:permissions>
             <iq:uses-permission id="Background"/>

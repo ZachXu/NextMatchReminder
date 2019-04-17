@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration status="info" shutdownHook="disable" monitorInterval="5">
+	<properties>
+		<property name="logDir">${env:SERVICE_LOG_PATH:-logs}</property>
+		<property name="serverfile">server.log</property>
+		<property name="pattern">%d %-5p %c{1} - %m%n</property>
+	</properties>
+	
+	<appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="${pattern}" />
+		</Console>
+		
+		<File name="LogFile" fileName="${logDir}/${serverfile}">
+			<PatternLayout pattern="${pattern}" />
+		</File>
+	</appenders>
+	<loggers>
+		<logger name="de.zachxu.nextmatchreminder.webservice" level="info" additivity="false">
+			<appender-ref ref="Console" />
+			<appender-ref ref="LogFile" />
+		</logger>
+		<root level="info">
+			<appender-ref ref="Console" />
+			<appender-ref ref="LogFile" />
+		</root>
+	</loggers>
+</configuration>
