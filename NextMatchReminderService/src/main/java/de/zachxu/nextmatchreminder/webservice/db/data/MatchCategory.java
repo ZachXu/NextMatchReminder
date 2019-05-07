@@ -14,8 +14,8 @@ public class MatchCategory extends AbstractNMRObject {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = 132850720382399037L;
+
 	@Column(name="CATEGORYNAME")
 	private final String mCategoryName;
 	

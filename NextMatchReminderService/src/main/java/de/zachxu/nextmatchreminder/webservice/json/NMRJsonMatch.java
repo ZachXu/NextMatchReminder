@@ -1,18 +1,22 @@
 package de.zachxu.nextmatchreminder.webservice.json;
 
+import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.GregorianCalendar;
 
-import javax.json.bind.annotation.JsonbDateFormat;
 import javax.json.bind.annotation.JsonbProperty;
 import javax.json.bind.annotation.JsonbPropertyOrder;
 
 import de.zachxu.nextmatchreminder.webservice.db.data.MatchInfo;
 
 @JsonbPropertyOrder({"homeTeam", "guestTeam", "matchCategory", "matchRound", "matchTime"})
-public class NMRJsonMatch {
+public class NMRJsonMatch implements Serializable {
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
 	private static final SimpleDateFormat NMRSDF = new SimpleDateFormat("yyyy-MM-dd HH:mm");
 	
 	private final String mHomeTeam;

@@ -14,7 +14,7 @@ public class TeamInfo extends AbstractNMRObject {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -9202104309801652093L;
 
 	@Column(name="TEAMNAME")
 	private final String mTeamName;

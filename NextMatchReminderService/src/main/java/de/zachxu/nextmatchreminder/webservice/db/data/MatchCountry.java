@@ -11,7 +11,7 @@ public class MatchCountry extends AbstractNMRObject {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = -6036267209361604254L;
 	
 	@Column(name="COUNTRYNAME")
 	private final String mCountryName;

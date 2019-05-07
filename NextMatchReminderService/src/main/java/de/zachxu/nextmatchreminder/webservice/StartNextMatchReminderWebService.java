@@ -1,5 +1,8 @@
 package de.zachxu.nextmatchreminder.webservice;
 
+import java.net.InetAddress;
+
+import org.apache.derby.drda.NetworkServerControl;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.eclipse.jetty.server.Connector;
@@ -26,9 +29,18 @@ public class StartNextMatchReminderWebService
     {
     	extractParameters(args);
     	
+    	NetworkServerControl derbyServer = null;
+    	
     	try
 		{
     		LOG.info("initial server...");
+    		
+    		LOG.info("Start Derby server...");
+    		
+    		derbyServer = new NetworkServerControl(InetAddress.getByName("0.0.0.0"), 1527);
+    		derbyServer.start(null);
+    		
+    		LOG.info("Derby server started...");
     		
     		Server server = new Server();
         	ServerConnector serverConnector = new ServerConnector(server);
@@ -60,9 +72,20 @@ public class StartNextMatchReminderWebService
 		{
 			LOG.error(e.getMessage(), e);
 		}
-    	
-    	LOG.info("Server is down...");
-    	
+    	finally {
+    		LOG.info("Server is down...");
+    		
+    		if (derbyServer != null)
+    		{
+    			try
+				{
+					derbyServer.shutdown();
+				} catch (Exception e)
+				{
+					LOG.error(e.getMessage(), e);
+				}
+    		}
+		}
     }
 
     /**

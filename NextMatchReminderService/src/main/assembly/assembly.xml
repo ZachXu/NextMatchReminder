@@ -15,11 +15,11 @@
 	<fileSets>
 		<fileSet>
 			<directory>src/main/scripts</directory>
-			<outputDirectory>/bin</outputDirectory>
+			<outputDirectory>bin</outputDirectory>
 		</fileSet>
 		<fileSet>
 			<directory>database</directory>
-			<outputDirectory>/database</outputDirectory>
+			<outputDirectory>database</outputDirectory>
 		</fileSet>
 	</fileSets>
 </assembly>

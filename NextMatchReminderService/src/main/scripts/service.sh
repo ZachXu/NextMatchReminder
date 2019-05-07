@@ -16,14 +16,14 @@ SERVICE_HOME=$(dirname $(dirname $(readlink -f $0)))
 PID_PATH_NAME=/tmp/$SERVICE_NAME-pid
 CLASSPATH=$CLASSPATH:$SERVICE_HOME/lib/*
 
-SERVICE_LOG_PATH=$SERVICE_HOME/logs
+export SERVICE_LOG_PATH=$SERVICE_HOME/logs
 
 echo $SERVICE_HOME
 echo $CLASSPATH
 echo $PID_PATH_NAME
 
 START_CLASS=de.zachxu.nextmatchreminder.webservice.StartNextMatchReminderWebService
-START_ARGS="-dburl=jdbc:derby:$SERVICE_HOME/database/NMR -port=8080"
+START_ARGS="-dburl=jdbc:derby://127.0.0.1:1527/$SERVICE_HOME/database/NMR -port=8080"
 
 case $1 in
     start)

@@ -16,8 +16,8 @@ public class MatchInfo extends AbstractNMRObject {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	
+	private static final long serialVersionUID = -3497500242289288156L;
+
 	@ManyToOne(fetch=FetchType.LAZY)
 	@JoinColumn(name="HOMETEAM_ID")
 	private final TeamInfo mHomeTeam;
