@@ -9,7 +9,10 @@ public class NMRProperty{
 	public static enum NMRParam{
 		SERVERPORT("-port", "80"),
 		SECURESERVERPORT("-secureport", "443"),
-		DBURL("-dburl", "jdbc:derby:./database/NMR");
+		DBDRIVER("-dbdriver", "org.apache.derby.jdbc.ClientDriver"),
+		DBURL("-dburl", "jdbc:derby:./database/NMR"),
+		DBUSER("-dbuser", "NMR"),
+		DBPASSWORD("-dbpassword", "NMR");
 		
 		private final String mParameter;
 		private final String mDefaultValue;
@@ -71,7 +74,7 @@ public class NMRProperty{
 	 * @param pParam
 	 * @return
 	 */
-	private static String getProperty(NMRParam pParam) {
+	public static String getProperty(NMRParam pParam) {
 		return props.getProperty(pParam.getParameter(), pParam.getDefaultValue());
 	}
 	
