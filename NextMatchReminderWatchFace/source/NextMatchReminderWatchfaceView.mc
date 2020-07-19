@@ -5,6 +5,7 @@ using Toybox.Lang;
 using Toybox.Time;
 using Toybox.Time.Gregorian;
 using Toybox.Application.Storage;
+using Toybox.ActivityMonitor;
 
 
 class NextMatchReminderWatchfaceView extends WatchUi.WatchFace {
@@ -59,6 +60,15 @@ class NextMatchReminderWatchfaceView extends WatchUi.WatchFace {
     	]);
     	var lbldate = View.findDrawableById("LBL_DATE_WEEKDAY");
     	lbldate.setText(dateString);
+    	
+    	//Steps and StepGoal information
+    	var activityInfo = ActivityMonitor.getInfo();
+    	var steps = activityInfo.steps;
+    	var stepgoal = activityInfo.stepGoal;
+		var stepinfo = Lang.format("$1$/$2$", [steps, stepgoal]);
+		
+		var lblstep = View.findDrawableById("LBL_STEPINFO");
+		lblstep.setText(stepinfo);
         
         // Get and show the current time
         var clockTime = System.getClockTime();
@@ -98,12 +108,25 @@ class NextMatchReminderWatchfaceView extends WatchUi.WatchFace {
     			[WatchUi.loadResource(Rez.Strings.NEXT_MATCH),
     			matchInfo["categoryName"],
     			formatMatchRound]));
-    			
-    		var lblMatchTeam = View.findDrawableById("LBL_MATCHTEAM");
-    		lblMatchTeam.setText(Lang.format(
-    			"$1$ VS $2$", 
-    			[matchInfo["home"], matchInfo["guest"]]));
     		
+    		var homeTeam = matchInfo["home"];
+    		
+    		var lblHomeTeam = View.findDrawableById("LBL_MATCHTEAMHOME");
+    		lblHomeTeam.setText(homeTeam[:name]);
+    		lblHomeTeam.setColor(homeTeam[:home]);
+    		
+    		var guestTeam = matchInfo["guest"];
+    		var guestColor = guestTeam[:guest];
+    		
+    		if (guestColor == homeTeam[:home])
+    		{
+    			guestColor = guestTeam[:home];
+    		}
+    		
+    		var lblGuestTeam = View.findDrawableById("LBL_MATCHTEAMGUEST");
+    		lblGuestTeam.setText(guestTeam[:name]);
+    		lblGuestTeam.setColor(guestColor);
+ 
     		var lblMatchTime = View.findDrawableById("LBL_MATCH_DAY");
     		lblMatchTime.setText(matchInfo["matchTime"]);
     	}

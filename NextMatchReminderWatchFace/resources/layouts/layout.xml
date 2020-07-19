@@ -4,20 +4,26 @@
     <label id="LBL_DATE_WEEKDAY" x="40" y="20" font="Gfx.FONT_SMALL" color="0xFFFFFF" />
     
     <drawable id="DRAW_BLUETOOTH" class="DrawableBluetooth">
-        <param name="x">60</param>
+        <param name="x">30</param>
         <param name="y">50</param>
     </drawable>
     
     <drawable id="DRAW_HEARTRATE" class="DrawableHeartRate">
-        <param name="x">90</param>
+        <param name="x">60</param>
         <param name="y">50</param>
     </drawable>
+    
+    <label id="LBL_STEPINFO" x="125" y="50" font="Gfx.FONT_SYSTEM_TINY" color="0xFFFFFF"  />
     
     <label id="LBL_TIME" x="center" y="center" font="Gfx.FONT_NUMBER_THAI_HOT" justification="Graphics.TEXT_JUSTIFY_CENTER" color="0xFFFFFF" />
     
     <label id="LBL_MATCHBASICINFO" x="25" y="150" font="Gfx.FONT_SMALL" color="0xFFFFFF" />
-    <label id="LBL_MATCHTEAM" x="25" y="170" font="Gfx.FONT_SMALL" color="0xFFFFFF" />
-    <label id="LBL_MATCH_DAY" x="center" y="195" font="Gfx.FONT_XTINY" justification="Gfx.TEXT_JUSTIFY_CENTER" color="0xFFFFFF" />
+    
+    <label id="LBL_MATCHTEAMHOME" x="25" y="170" font="Gfx.FONT_SMALL" color="0xFFFFFF" />
+    <label id="LBL_MATCHVS" x="110" y="170" font="Gfx.FONT_SMALL" color="0xFFFFFF" text="vs" />
+    <label id="LBL_MATCHTEAMGUEST" x="140" y="170" font="Gfx.FONT_SMALL" color="0xFFFFFF" />
+    
+    <label id="LBL_MATCH_DAY" x="center" y="192" font="Gfx.FONT_XTINY" justification="Gfx.TEXT_JUSTIFY_CENTER" color="0xFFFFFF" />
     
     <drawable id="DRAW_BATTERY" class="DrawableBattery">
         <param name="weight">60</param>
