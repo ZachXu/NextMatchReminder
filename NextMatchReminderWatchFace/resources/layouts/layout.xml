@@ -13,7 +13,7 @@
         <param name="y">50</param>
     </drawable>
     
-    <label id="LBL_STEPINFO" x="125" y="50" font="Gfx.FONT_SYSTEM_TINY" color="0xFFFFFF"  />
+    <label id="LBL_STEPINFO" x="120" y="50" font="Gfx.FONT_SYSTEM_TINY" color="0xFFFFFF"  />
     
     <label id="LBL_TIME" x="center" y="center" font="Gfx.FONT_NUMBER_THAI_HOT" justification="Graphics.TEXT_JUSTIFY_CENTER" color="0xFFFFFF" />
     
