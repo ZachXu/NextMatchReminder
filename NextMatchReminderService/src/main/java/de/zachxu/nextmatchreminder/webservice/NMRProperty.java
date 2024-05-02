@@ -7,12 +7,13 @@ public class NMRProperty{
 	private static final Properties props = new Properties(); 
 	
 	public static enum NMRParam{
-		SERVERPORT("-port", "80"),
-		SECURESERVERPORT("-secureport", "443"),
-		DBDRIVER("-dbdriver", "org.apache.derby.jdbc.ClientDriver"),
-		DBURL("-dburl", "jdbc:derby:./database/NMR"),
-		DBUSER("-dbuser", "NMR"),
-		DBPASSWORD("-dbpassword", "NMR");
+		SERVERPORT("--port", "80"),
+		ENABLE_SSL("--enable-ssl", "true"),
+		SECURESERVERPORT("--secureport", "443"),
+		DBDRIVER("--dbdriver", "org.apache.derby.jdbc.ClientDriver"),
+		DBURL("--dburl", "jdbc:derby:./database/NMR"),
+		DBUSER("--dbuser", "NMR"),
+		DBPASSWORD("--dbpassword", "NMR");
 		
 		private final String mParameter;
 		private final String mDefaultValue;
@@ -76,6 +77,15 @@ public class NMRProperty{
 	 */
 	public static String getProperty(NMRParam pParam) {
 		return props.getProperty(pParam.getParameter(), pParam.getDefaultValue());
+	}
+	
+	/**
+	 * 
+	 * @param pParam
+	 * @return boolean property value
+	 */
+	public static boolean getBooleanProperty(NMRParam pParam) {
+		return Boolean.parseBoolean(getProperty(pParam));
 	}
 	
 	/**

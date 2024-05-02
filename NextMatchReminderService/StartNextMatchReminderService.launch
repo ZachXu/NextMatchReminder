@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.launching.localJavaApplication">
-<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/NextMatchReminderService/src/main/java/de/zachxu/nextmatchreminder/webservice/StartNextMatchReminderWebService.java"/>
-</listAttribute>
-<listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
-<listEntry value="1"/>
-</listAttribute>
-<booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
-<stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.m2e.launchconfig.classpathProvider"/>
-<stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="de.zachxu.nextmatchreminder.webservice.StartNextMatchReminderWebService"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-port=8080 -dburl=jdbc:derby://localhost:1527/${project_loc:NextMatchReminderService}/database/NMR"/>
-<stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="NextMatchReminderService"/>
-<stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
-<stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dlog4j.configurationFile=${project_loc:NextMatchReminderService}/src/main/scripts/log4j2.xml"/>
+    <booleanAttribute key="org.eclipse.debug.core.ATTR_FORCE_SYSTEM_CONSOLE_ENCODING" value="false"/>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
+        <listEntry value="/NextMatchReminderService/src/main/java/de/zachxu/nextmatchreminder/webservice/StartNextMatchReminderWebService.java"/>
+    </listAttribute>
+    <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
+        <listEntry value="1"/>
+    </listAttribute>
+    <booleanAttribute key="org.eclipse.jdt.launching.ATTR_USE_START_ON_FIRST_THREAD" value="true"/>
+    <stringAttribute key="org.eclipse.jdt.launching.CLASSPATH_PROVIDER" value="org.eclipse.m2e.launchconfig.classpathProvider"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MAIN_TYPE" value="de.zachxu.nextmatchreminder.webservice.StartNextMatchReminderWebService"/>
+    <stringAttribute key="org.eclipse.jdt.launching.MODULE_NAME" value="NextMatchReminderService"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="--port=8084 --enable-ssl=false --dburl=jdbc:derby://localhost:1527/${project_loc:NextMatchReminderService}/database/NMR"/>
+    <stringAttribute key="org.eclipse.jdt.launching.PROJECT_ATTR" value="NextMatchReminderService"/>
+    <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.m2e.launchconfig.sourcepathProvider"/>
+    <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Dlog4j.configurationFile=${project_loc:NextMatchReminderService}/src/main/scripts/log4j2.xml&#10;-Djava.net.preferIPv4Stack=true"/>
 </launchConfiguration>

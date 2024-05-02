@@ -16,6 +16,7 @@ import org.eclipse.jetty.util.ssl.SslContextFactory;
 import org.glassfish.jersey.jetty.JettyHttpContainer;
 import org.glassfish.jersey.server.ContainerFactory;
 
+import de.zachxu.nextmatchreminder.webservice.NMRProperty.NMRParam;
 import de.zachxu.nextmatchreminder.webservice.json.NMRJsonApplication;
 
 /**
@@ -46,20 +47,27 @@ public class StartNextMatchReminderWebService
         	ServerConnector serverConnector = new ServerConnector(server);
         	serverConnector.setPort(NMRProperty.getServerPort());
         	
-        	HttpConfiguration https = new HttpConfiguration();
-        	https.addCustomizer(new SecureRequestCustomizer());
-        	
-        	SslContextFactory sslContextFactory = new SslContextFactory();
-        	sslContextFactory.setKeyStorePath(StartNextMatchReminderWebService.class.getResource("/keystore.jks").toExternalForm());
-        	sslContextFactory.setKeyStorePassword("abcd,1234");
-        	sslContextFactory.setKeyManagerPassword("abcd,1234");
-        	
-        	ServerConnector sslConnector = new ServerConnector(server, 
-        			new SslConnectionFactory(sslContextFactory, "http/1.1"),
-        			new HttpConnectionFactory(https));
-        	sslConnector.setPort(NMRProperty.getSecureServerPort());
-        	
-        	server.setConnectors(new Connector[] {serverConnector, sslConnector});
+        	if (NMRProperty.getBooleanProperty(NMRParam.ENABLE_SSL))
+        	{
+        		HttpConfiguration https = new HttpConfiguration();
+        		https.addCustomizer(new SecureRequestCustomizer());
+        		
+        		SslContextFactory sslContextFactory = new SslContextFactory();
+        		sslContextFactory.setKeyStorePath(
+        				StartNextMatchReminderWebService.class.getResource("/keystore.jks").toExternalForm());
+        		sslContextFactory.setKeyStorePassword("abcd,1234");
+        		sslContextFactory.setKeyManagerPassword("abcd,1234");
+        		
+        		ServerConnector sslConnector = new ServerConnector(server,
+        				new SslConnectionFactory(sslContextFactory, "http/1.1"), new HttpConnectionFactory(https));
+        		sslConnector.setPort(NMRProperty.getSecureServerPort());
+        		
+        		server.setConnectors(new Connector[] {serverConnector, sslConnector});
+        	}
+        	else
+        	{
+        		server.setConnectors(new Connector[] {serverConnector});
+        	}
         	
         	final JettyHttpContainer container = ContainerFactory.createContainer(JettyHttpContainer.class, new NMRJsonApplication());
         	

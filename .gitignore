@@ -1,2 +1,9 @@
 /.metadata/
 /.recommenders/
+**/target/
+**/*.log
+**/logs/
+**/bin/
+
+**/.settings/
+**/.classpath
